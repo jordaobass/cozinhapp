@@ -1,218 +1,686 @@
 [
   {
-    "id": 1,
-    "nome": "Omelete Simples",
-    "descricao": "Bata 2 ovos com um pouco de sal e pimenta. Aqueça uma frigideira com um fio de azeite, despeje os ovos batidos e cozinhe até firmar. Vire para cozinhar o outro lado.",
-    "calorias": 155,
-    "proteina": 13,
-    "carboidrato": 1.1,
-    "ingredientes": ["Ovos", "Sal", "Pimenta", "Azeite"]
+    "id": 25,
+    "nome": "Bolo de Cenoura",
+    "descricao": "Misture cenouras raladas, ovos, açúcar e farinha. Asse em forma untada até dourar.",
+    "calorias": 320,
+    "proteina": 4,
+    "carboidrato": 56,
+    "ingredientes": ["Cenoura", "Ovos", "Açúcar", "Farinha", "Fermento"]
   },
   {
-    "id": 2,
-    "nome": "Arroz Branco",
-    "descricao": "Cozinhe 1 xícara de arroz em 2 xícaras de água com uma pitada de sal. Deixe cozinhar em fogo baixo até que a água evapore.",
-    "calorias": 130,
-    "proteina": 2.7,
-    "carboidrato": 28.6,
-    "ingredientes": ["Arroz", "Água", "Sal"]
+    "id": 26,
+    "nome": "Panquecas",
+    "descricao": "Misture ovos, leite, farinha e açúcar. Cozinhe em uma frigideira até dourar dos dois lados.",
+    "calorias": 210,
+    "proteina": 6,
+    "carboidrato": 34,
+    "ingredientes": ["Ovos", "Leite", "Farinha", "Açúcar"]
   },
   {
-    "id": 3,
-    "nome": "Feijão Tropeiro",
-    "descricao": "Cozinhe o feijão e misture com arroz, bacon frito, cebola picada e temperos a gosto. Sirva quente.",
-    "calorias": 127,
-    "proteina": 8.7,
-    "carboidrato": 22.8,
-    "ingredientes": ["Feijão", "Arroz", "Bacon", "Cebola", "Temperos"]
+    "id": 27,
+    "nome": "Pão de Queijo",
+    "descricao": "Misture polvilho, queijo ralado, ovos e leite. Modele bolinhas e asse até dourar.",
+    "calorias": 200,
+    "proteina": 6,
+    "carboidrato": 20,
+    "ingredientes": ["Polvilho", "Queijo", "Ovos", "Leite"]
   },
   {
-    "id": 4,
-    "nome": "Banana com Mel",
-    "descricao": "Corte a banana ao meio, regue com mel e polvilhe canela. Sirva como sobremesa.",
-    "calorias": 89,
-    "proteina": 1.1,
-    "carboidrato": 22.8,
-    "ingredientes": ["Banana", "Mel", "Canela"]
+    "id": 28,
+    "nome": "Sopa de Lentilhas",
+    "descricao": "Cozinhe lentilhas com cebola, cenoura e temperos até ficarem macias.",
+    "calorias": 180,
+    "proteina": 9,
+    "carboidrato": 30,
+    "ingredientes": ["Lentilhas", "Cebola", "Cenoura", "Temperos"]
   },
   {
-    "id": 5,
-    "nome": "Salada de Maçã",
-    "descricao": "Misture cubos de maçã com nozes e iogurte. Tempere com mel e canela.",
-    "calorias": 52,
-    "proteina": 0.3,
-    "carboidrato": 14,
-    "ingredientes": ["Maçã", "Nozes", "Iogurte", "Mel", "Canela"]
+    "id": 29,
+    "nome": "Quiche de Espinafre",
+    "descricao": "Misture ovos, creme de leite e espinafre. Asse em uma massa até firmar.",
+    "calorias": 350,
+    "proteina": 10,
+    "carboidrato": 40,
+    "ingredientes": ["Ovos", "Creme de Leite", "Espinafre", "Massa"]
   },
   {
-    "id": 6,
-    "nome": "Suco de Laranja Natural",
-    "descricao": "Esprema laranjas frescas até obter 1 copo de suco. Sirva gelado.",
-    "calorias": 47,
-    "proteina": 0.9,
-    "carboidrato": 11.8,
-    "ingredientes": ["Laranja"]
+    "id": 30,
+    "nome": "Frango Grelhado",
+    "descricao": "Tempere o frango com sal, pimenta e ervas. Grelhe até cozinhar completamente.",
+    "calorias": 165,
+    "proteina": 31,
+    "carboidrato": 0,
+    "ingredientes": ["Peito de Frango", "Sal", "Pimenta", "Ervas"]
   },
   {
-    "id": 7,
-    "nome": "Manga com Limão",
-    "descricao": "Corte a manga em cubos e regue com suco de limão. Sirva gelada.",
-    "calorias": 60,
-    "proteina": 0.8,
-    "carboidrato": 15,
-    "ingredientes": ["Manga", "Limão"]
+    "id": 31,
+    "nome": "Arroz à Grega",
+    "descricao": "Misture arroz cozido com ervilhas, cenouras e pimentões. Tempere a gosto.",
+    "calorias": 250,
+    "proteina": 5,
+    "carboidrato": 45,
+    "ingredientes": ["Arroz", "Ervilhas", "Cenouras", "Pimentões"]
   },
   {
-    "id": 8,
-    "nome": "Abacaxi Grelhado",
-    "descricao": "Corte o abacaxi em rodelas e grelhe em fogo médio até dourar. Sirva morno.",
-    "calorias": 50,
-    "proteina": 0.5,
-    "carboidrato": 13,
-    "ingredientes": ["Abacaxi"]
+    "id": 32,
+    "nome": "Bife Acebolado",
+    "descricao": "Grelhe bife e cubra com cebolas refogadas. Sirva com arroz.",
+    "calorias": 300,
+    "proteina": 25,
+    "carboidrato": 0,
+    "ingredientes": ["Bife", "Cebola", "Azeite"]
   },
   {
-    "id": 9,
-    "nome": "Uvas Frescas",
-    "descricao": "Sirva uvas frescas como lanche. Podem ser congeladas para um refresco.",
-    "calorias": 69,
-    "proteina": 0.7,
-    "carboidrato": 18,
-    "ingredientes": ["Uvas"]
+    "id": 33,
+    "nome": "Salmão ao Forno",
+    "descricao": "Tempere o salmão com limão e ervas. Asse até ficar opaco.",
+    "calorias": 206,
+    "proteina": 22,
+    "carboidrato": 0,
+    "ingredientes": ["Salmão", "Limão", "Ervas"]
   },
   {
-    "id": 10,
-    "nome": "Salada de Morango",
-    "descricao": "Misture morangos fatiados com folhas verdes e queijo feta. Tempere com azeite e balsâmico.",
-    "calorias": 32,
-    "proteina": 0.7,
-    "carboidrato": 7.7,
-    "ingredientes": ["Morangos", "Folhas Verdes", "Queijo Feta", "Azeite", "Vinagre Balsâmico"]
+    "id": 34,
+    "nome": "Tortilha de Batata",
+    "descricao": "Frite batatas e cebolas, misture com ovos e cozinhe até firmar.",
+    "calorias": 290,
+    "proteina": 9,
+    "carboidrato": 35,
+    "ingredientes": ["Batata", "Cebola", "Ovos"]
   },
   {
-    "id": 11,
-    "nome": "Pêssego Grelhado",
-    "descricao": "Corte os pêssegos ao meio, retire o caroço e grelhe até dourar. Sirva com um pouco de mel.",
-    "calorias": 39,
-    "proteina": 0.9,
-    "carboidrato": 10,
-    "ingredientes": ["Pêssego", "Mel"]
+    "id": 35,
+    "nome": "Nhoque de Batata",
+    "descricao": "Misture batata cozida, farinha e ovos. Modele os nhoques e cozinhe até flutuar.",
+    "calorias": 220,
+    "proteina": 5,
+    "carboidrato": 45,
+    "ingredientes": ["Batata", "Farinha", "Ovos"]
   },
   {
-    "id": 12,
-    "nome": "Kiwi com Iogurte",
-    "descricao": "Fatie o kiwi e sirva com iogurte natural e granola por cima.",
-    "calorias": 61,
-    "proteina": 1.1,
-    "carboidrato": 14.7,
-    "ingredientes": ["Kiwi", "Iogurte", "Granola"]
+    "id": 36,
+    "nome": "Batata Frita",
+    "descricao": "Corte as batatas em tiras e frite em óleo até ficarem douradas.",
+    "calorias": 365,
+    "proteina": 3,
+    "carboidrato": 63,
+    "ingredientes": ["Batata", "Óleo"]
   },
   {
-    "id": 13,
-    "nome": "Sopa de Cenoura",
-    "descricao": "Refogue cebola e cenoura em cubos, adicione água e cozinhe até a cenoura amolecer. Bata no liquidificador e sirva.",
-    "calorias": 41,
-    "proteina": 0.9,
-    "carboidrato": 9.6,
-    "ingredientes": ["Cenoura", "Cebola", "Água"]
+    "id": 37,
+    "nome": "Pizza de Calabresa",
+    "descricao": "Prepare a massa e cubra com molho, queijo e rodelas de calabresa. Asse até dourar.",
+    "calorias": 280,
+    "proteina": 12,
+    "carboidrato": 36,
+    "ingredientes": ["Massa de Pizza", "Molho de Tomate", "Queijo", "Calabresa"]
   },
   {
-    "id": 14,
-    "nome": "Batata Assada",
-    "descricao": "Corte a batata ao meio, tempere com azeite, sal e alecrim. Asse no forno até dourar.",
-    "calorias": 77,
+    "id": 38,
+    "nome": "Pasta ao Pesto",
+    "descricao": "Cozinhe a massa e misture com pesto. Sirva quente.",
+    "calorias": 400,
+    "proteina": 12,
+    "carboidrato": 60,
+    "ingredientes": ["Massa", "Pesto"]
+  },
+  {
+    "id": 39,
+    "nome": "Risoto de Frango",
+    "descricao": "Cozinhe arroz com frango desfiado, cebola e caldo. Misture queijo ao final.",
+    "calorias": 300,
+    "proteina": 20,
+    "carboidrato": 40,
+    "ingredientes": ["Arroz", "Frango", "Cebola", "Queijo"]
+  },
+  {
+    "id": 40,
+    "nome": "Brigadeiro",
+    "descricao": "Misture leite condensado, chocolate em pó e manteiga. Cozinhe até desgrudar da panela.",
+    "calorias": 120,
     "proteina": 2,
-    "carboidrato": 17.6,
-    "ingredientes": ["Batata", "Azeite", "Sal", "Alecrim"]
+    "carboidrato": 20,
+    "ingredientes": ["Leite Condensado", "Chocolate em Pó", "Manteiga"]
   },
   {
-    "id": 15,
-    "nome": "Salada de Tomate",
-    "descricao": "Fatie tomates e misture com cebola roxa, azeite, sal e manjericão. Sirva como entrada.",
-    "calorias": 18,
-    "proteina": 0.9,
-    "carboidrato": 3.9,
-    "ingredientes": ["Tomate", "Cebola Roxa", "Azeite", "Sal", "Manjericão"]
+    "id": 41,
+    "nome": "Coxinha",
+    "descricao": "Prepare a massa com caldo e recheie com frango desfiado. Empane e frite.",
+    "calorias": 250,
+    "proteina": 10,
+    "carboidrato": 30,
+    "ingredientes": ["Massa de Coxinha", "Frango", "Farinha de Rosca"]
   },
   {
-    "id": 16,
-    "nome": "Pepino em Conserva",
-    "descricao": "Corte o pepino em fatias e coloque em vinagre com sal. Deixe descansar por 1 hora antes de servir.",
-    "calorias": 16,
-    "proteina": 0.7,
-    "carboidrato": 3.6,
-    "ingredientes": ["Pepino", "Vinagre", "Sal"]
+    "id": 42,
+    "nome": "Pudim de Leite",
+    "descricao": "Misture leite condensado, ovos e leite. Asse em banho-maria até firmar.",
+    "calorias": 200,
+    "proteina": 6,
+    "carboidrato": 30,
+    "ingredientes": ["Leite Condensado", "Ovos", "Leite"]
   },
   {
-    "id": 17,
-    "nome": "Pimentão Recheado",
-    "descricao": "Recheie pimentões com uma mistura de arroz, carne moída e temperos. Asse até os pimentões ficarem macios.",
-    "calorias": 20,
-    "proteina": 0.9,
-    "carboidrato": 4.7,
-    "ingredientes": ["Pimentão", "Arroz", "Carne Moída", "Temperos"]
+    "id": 43,
+    "nome": "Mousse de Maracujá",
+    "descricao": "Misture suco de maracujá, leite condensado e creme de leite. Leve à geladeira até firmar.",
+    "calorias": 150,
+    "proteina": 3,
+    "carboidrato": 20,
+    "ingredientes": ["Suco de Maracujá", "Leite Condensado", "Creme de Leite"]
   },
   {
-    "id": 18,
-    "nome": "Brócolis ao Vapor",
-    "descricao": "Cozinhe os brócolis no vapor até ficarem macios. Tempere com azeite e sal antes de servir.",
-    "calorias": 55,
-    "proteina": 3.7,
-    "carboidrato": 11.2,
-    "ingredientes": ["Brócolis", "Azeite", "Sal"]
+    "id": 44,
+    "nome": "Crepe de Nutella",
+    "descricao": "Prepare a massa e recheie com Nutella. Dobre e sirva com açúcar.",
+    "calorias": 310,
+    "proteina": 6,
+    "carboidrato": 50,
+    "ingredientes": ["Massa de Crepe", "Nutella", "Açúcar"]
   },
   {
-    "id": 19,
-    "nome": "Couve-flor Gratinada",
-    "descricao": "Cozinhe a couve-flor até amolecer, cubra com queijo e leve ao forno até dourar.",
-    "calorias": 25,
-    "proteina": 1.9,
-    "carboidrato": 4.9,
-    "ingredientes": ["Couve-flor", "Queijo"]
+    "id": 45,
+    "nome": "Torta de Limão",
+    "descricao": "Misture leite condensado, suco de limão e creme de leite. Asse em uma massa de torta.",
+    "calorias": 250,
+    "proteina": 4,
+    "carboidrato": 38,
+    "ingredientes": ["Leite Condensado", "Suco de Limão", "Creme de Leite", "Massa"]
   },
   {
-    "id": 20,
-    "nome": "Espinafre Refogado",
-    "descricao": "Refogue espinafre com alho e azeite até murchar. Tempere com sal a gosto.",
-    "calorias": 23,
-    "proteina": 2.9,
-    "carboidrato": 3.6,
-    "ingredientes": ["Espinafre", "Alho", "Azeite", "Sal"]
+    "id": 46,
+    "nome": "Pão de Mel",
+    "descricao": "Misture mel, chocolate e especiarias. Asse em formas pequenas.",
+    "calorias": 210,
+    "proteina": 5,
+    "carboidrato": 35,
+    "ingredientes": ["Mel", "Chocolate", "Especiarias", "Farinha"]
   },
   {
-    "id": 21,
-    "nome": "Salada de Alface",
-    "descricao": "Misture alface com tomates e cenoura ralada. Tempere com azeite e vinagre.",
-    "calorias": 5,
-    "proteina": 0.5,
-    "carboidrato": 1,
-    "ingredientes": ["Alface", "Tomate", "Cenoura", "Azeite", "Vinagre"]
+    "id": 47,
+    "nome": "Salada de Frutas",
+    "descricao": "Misture diversas frutas picadas e adicione suco de laranja.",
+    "calorias": 60,
+    "proteina": 1,
+    "carboidrato": 15,
+    "ingredientes": ["Frutas Variadas", "Suco de Laranja"]
   },
   {
-    "id": 22,
-    "nome": "Rúcula com Parmesão",
-    "descricao": "Misture rúcula com lascas de parmesão e um fio de azeite. Sirva como salada.",
-    "calorias": 25,
-    "proteina": 2.6,
-    "carboidrato": 3.7,
-    "ingredientes": ["Rúcula", "Parmesão", "Azeite"]
+    "id": 48,
+    "nome": "Bolinho de chuva",
+    "descricao": "Misture farinha, açúcar, ovos e leite. Frite colheradas até dourar.",
+    "calorias": 180,
+    "proteina": 3,
+    "carboidrato": 25,
+    "ingredientes": ["Farinha", "Açúcar", "Ovos", "Leite"]
   },
   {
-    "id": 23,
-    "nome": "Cebola Caramelizada",
-    "descricao": "Refogue cebolas em fatias com açúcar até dourar. Use como acompanhamento ou em sanduíches.",
-    "calorias": 40,
-    "proteina": 1.1,
-    "carboidrato": 9.3,
-    "ingredientes": ["Cebola", "Açúcar"]
+    "id": 49,
+    "nome": "Chá Gelado",
+    "descricao": "Prepare chá, adicione açúcar e limão. Sirva gelado com gelo.",
+    "calorias": 30,
+    "proteina": 0,
+    "carboidrato": 8,
+    "ingredientes": ["Chá", "Açúcar", "Limão"]
   },
   {
-    "id": 24,
-    "nome": "Alho Assado",
-    "descricao": "Asse dentes de alho envoltos em papel alumínio até ficarem macios. Use como tempero.",
-    "calorias": 149,
-    "proteina": 6.4,
-    "carboidrato": 33.1,
-    "ingredientes": ["Alho"]
+    "id": 50,
+    "nome": "Gelatina",
+    "descricao": "Misture gelatina em pó com água quente e leve à geladeira até firmar.",
+    "calorias": 80,
+    "proteina": 1,
+    "carboidrato": 20,
+    "ingredientes": ["Gelatina em Pó", "Água"]
+  },
+  {
+    "id": 51,
+    "nome": "Bolo de Chocolate",
+    "descricao": "Misture ovos, açúcar, chocolate em pó e farinha. Asse em forma untada.",
+    "calorias": 350,
+    "proteina": 5,
+    "carboidrato": 60,
+    "ingredientes": ["Ovos", "Açúcar", "Chocolate em Pó", "Farinha"]
+  },
+  {
+    "id": 52,
+    "nome": "Canelone de Ricota",
+    "descricao": "Recheie massa de canelone com ricota e molho de tomate. Asse até borbulhar.",
+    "calorias": 300,
+    "proteina": 15,
+    "carboidrato": 45,
+    "ingredientes": ["Massa de Canelone", "Ricota", "Molho de Tomate"]
+  },
+  {
+    "id": 53,
+    "nome": "Bacalhau à Brás",
+    "descricao": "Misture bacalhau desfiado com batatas palha e ovos. Cozinhe até firmar.",
+    "calorias": 400,
+    "proteina": 30,
+    "carboidrato": 30,
+    "ingredientes": ["Bacalhau", "Batata Palha", "Ovos"]
+  },
+  {
+    "id": 54,
+    "nome": "Espaguete à Carbonara",
+    "descricao": "Misture espaguete cozido com bacon, ovos e queijo parmesão.",
+    "calorias": 600,
+    "proteina": 25,
+    "carboidrato": 70,
+    "ingredientes": ["Espaguete", "Bacon", "Ovos", "Queijo Parmesão"]
+  },
+  {
+    "id": 55,
+    "nome": "Camarão na Moranga",
+    "descricao": "Cozinhe camarões com molho de tomate dentro da abóbora.",
+    "calorias": 350,
+    "proteina": 30,
+    "carboidrato": 20,
+    "ingredientes": ["Camarão", "Abóbora", "Molho de Tomate"]
+  },
+  {
+    "id": 56,
+    "nome": "Tacos",
+    "descricao": "Recheie tortillas com carne moída, alface e queijo. Sirva com molho.",
+    "calorias": 250,
+    "proteina": 15,
+    "carboidrato": 30,
+    "ingredientes": ["Tortilla", "Carne Moída", "Alface", "Queijo"]
+  },
+  {
+    "id": 57,
+    "nome": "Sushi",
+    "descricao": "Prepare arroz de sushi e recheie com peixe cru e legumes. Enrole e sirva.",
+    "calorias": 300,
+    "proteina": 20,
+    "carboidrato": 50,
+    "ingredientes": ["Arroz de Sushi", "Peixe Cru", "Legumes"]
+  },
+  {
+    "id": 58,
+    "nome": "Ceviche",
+    "descricao": "Misture peixe cru com suco de limão, cebola e coentro. Sirva gelado.",
+    "calorias": 200,
+    "proteina": 25,
+    "carboidrato": 5,
+    "ingredientes": ["Peixe", "Limão", "Cebola", "Coentro"]
+  },
+  {
+    "id": 59,
+    "nome": "Bolo de Rolo",
+    "descricao": "Prepare a massa e enrole com goiabada. Asse até dourar.",
+    "calorias": 280,
+    "proteina": 4,
+    "carboidrato": 50,
+    "ingredientes": ["Massa", "Goiabada"]
+  },
+  {
+    "id": 60,
+    "nome": "Feijoada",
+    "descricao": "Cozinhe feijão preto com carnes e temperos. Sirva com arroz e couve.",
+    "calorias": 400,
+    "proteina": 25,
+    "carboidrato": 60,
+    "ingredientes": ["Feijão Preto", "Carnes", "Arroz", "Couve"]
+  },
+  {
+    "id": 61,
+    "nome": "Pavê de Chocolate",
+    "descricao": "Monte camadas de biscoitos, creme de chocolate e chocolate granulado.",
+    "calorias": 350,
+    "proteina": 6,
+    "carboidrato": 40,
+    "ingredientes": ["Biscoitos", "Creme de Chocolate", "Chocolate Granulado"]
+  },
+  {
+    "id": 62,
+    "nome": "Salpicão",
+    "descricao": "Misture frango desfiado, legumes e maionese. Sirva frio.",
+    "calorias": 200,
+    "proteina": 15,
+    "carboidrato": 10,
+    "ingredientes": ["Frango", "Legumes", "Maionese"]
+  },
+  {
+    "id": 63,
+    "nome": "Bolacha de Manteiga",
+    "descricao": "Misture manteiga, açúcar e farinha. Modele e asse até dourar.",
+    "calorias": 150,
+    "proteina": 2,
+    "carboidrato": 25,
+    "ingredientes": ["Manteiga", "Açúcar", "Farinha"]
+  },
+  {
+    "id": 64,
+    "nome": "Bolo de Baunilha",
+    "descricao": "Misture ovos, açúcar, manteiga e farinha. Asse até dourar.",
+    "calorias": 320,
+    "proteina": 5,
+    "carboidrato": 55,
+    "ingredientes": ["Ovos", "Açúcar", "Manteiga", "Farinha"]
+  },
+  {
+    "id": 65,
+    "nome": "Macarrão com Queijo",
+    "descricao": "Cozinhe macarrão e misture com queijo derretido e creme de leite.",
+    "calorias": 500,
+    "proteina": 20,
+    "carboidrato": 70,
+    "ingredientes": ["Macarrão", "Queijo", "Creme de Leite"]
+  },
+  {
+    "id": 66,
+    "nome": "Batata ao Forno",
+    "descricao": "Corte as batatas em cubos, tempere e asse até ficarem crocantes.",
+    "calorias": 200,
+    "proteina": 4,
+    "carboidrato": 40,
+    "ingredientes": ["Batata", "Azeite", "Ervas"]
+  },
+  {
+    "id": 67,
+    "nome": "Rocambole de Carne",
+    "descricao": "Misture carne moída com temperos, recheie e asse até dourar.",
+    "calorias": 300,
+    "proteina": 25,
+    "carboidrato": 10,
+    "ingredientes": ["Carne Moída", "Temperos", "Recheio"]
+  },
+  {
+    "id": 68,
+    "nome": "Frango à Parmegiana",
+    "descricao": "Empane o frango, frite e cubra com molho de tomate e queijo. Asse até derreter.",
+    "calorias": 450,
+    "proteina": 30,
+    "carboidrato": 40,
+    "ingredientes": ["Frango", "Molho de Tomate", "Queijo", "Farinha de Rosca"]
+  },
+  {
+    "id": 69,
+    "nome": "Bife à Milanesa",
+    "descricao": "Empane bife e frite até dourar. Sirva com arroz e salada.",
+    "calorias": 350,
+    "proteina": 25,
+    "carboidrato": 30,
+    "ingredientes": ["Bife", "Farinha de Rosca", "Ovo"]
+  },
+  {
+    "id": 70,
+    "nome": "Sopa de Tomate",
+    "descricao": "Cozinhe tomates com cebola e temperos. Bata no liquidificador e sirva quente.",
+    "calorias": 120,
+    "proteina": 3,
+    "carboidrato": 20,
+    "ingredientes": ["Tomates", "Cebola", "Temperos"]
+  },
+  {
+    "id": 71,
+    "nome": "Pasta de Atum",
+    "descricao": "Misture atum, maionese e cebola. Sirva com torradas.",
+    "calorias": 200,
+    "proteina": 25,
+    "carboidrato": 10,
+    "ingredientes": ["Atum", "Maionese", "Cebola"]
+  },
+  {
+    "id": 72,
+    "nome": "Torta de Frango",
+    "descricao": "Prepare a massa e recheie com frango desfiado. Asse até dourar.",
+    "calorias": 350,
+    "proteina": 20,
+    "carboidrato": 45,
+    "ingredientes": ["Massa", "Frango", "Temperos"]
+  },
+  {
+    "id": 73,
+    "nome": "Salgadinho",
+    "descricao": "Misture a massa, modele e frite até dourar.",
+    "calorias": 250,
+    "proteina": 5,
+    "carboidrato": 35,
+    "ingredientes": ["Massa", "Recheio", "Óleo"]
+  },
+  {
+    "id": 74,
+    "nome": "Tapioca",
+    "descricao": "Misture goma de tapioca e cozinhe em frigideira. Recheie a gosto.",
+    "calorias": 180,
+    "proteina": 4,
+    "carboidrato": 38,
+    "ingredientes": ["Goma de Tapioca", "Recheio"]
+  },
+  {
+    "id": 75,
+    "nome": "Pão com Ovo",
+    "descricao": "Frija o ovo e coloque em um pão. Adicione temperos a gosto.",
+    "calorias": 250,
+    "proteina": 12,
+    "carboidrato": 30,
+    "ingredientes": ["Pão", "Ovo", "Tempero"]
+  },
+  {
+    "id": 76,
+    "nome": "Salada Caesar",
+    "descricao": "Misture alface, frango grelhado, croutons e molho Caesar.",
+    "calorias": 220,
+    "proteina": 18,
+    "carboidrato": 15,
+    "ingredientes": ["Alface", "Frango", "Croutons", "Molho Caesar"]
+  },
+  {
+    "id": 77,
+    "nome": "Pão de Alho",
+    "descricao": "Misture manteiga e alho e espalhe em fatias de pão. Asse até dourar.",
+    "calorias": 180,
+    "proteina": 4,
+    "carboidrato": 28,
+    "ingredientes": ["Pão", "Manteiga", "Alho"]
+  },
+  {
+    "id": 78,
+    "nome": "Bolo de Limão",
+    "descricao": "Misture ovos, açúcar, limão e farinha. Asse em forma untada.",
+    "calorias": 320,
+    "proteina": 5,
+    "carboidrato": 56,
+    "ingredientes": ["Ovos", "Açúcar", "Limão", "Farinha"]
+  },
+  {
+    "id": 79,
+    "nome": "Cuscuz Paulista",
+    "descricao": "Misture farinha de milho com legumes e frango. Cozinhe no vapor.",
+    "calorias": 250,
+    "proteina": 15,
+    "carboidrato": 30,
+    "ingredientes": ["Farinha de Milho", "Legumes", "Frango"]
+  },
+  {
+    "id": 80,
+    "nome": "Escondidinho de Carne",
+    "descricao": "Misture carne moída com purê de batata. Asse até dourar.",
+    "calorias": 400,
+    "proteina": 25,
+    "carboidrato": 50,
+    "ingredientes": ["Carne Moída", "Batata", "Queijo"]
+  },
+  {
+    "id": 81,
+    "nome": "Torta de Batata",
+    "descricao": "Misture batatas cozidas, queijo e temperos. Asse até firmar.",
+    "calorias": 300,
+    "proteina": 10,
+    "carboidrato": 45,
+    "ingredientes": ["Batata", "Queijo", "Temperos"]
+  },
+  {
+    "id": 82,
+    "nome": "Crepe Salgado",
+    "descricao": "Prepare a massa e recheie com queijo e presunto. Dobre e sirva.",
+    "calorias": 250,
+    "proteina": 12,
+    "carboidrato": 30,
+    "ingredientes": ["Massa de Crepe", "Queijo", "Presunto"]
+  },
+  {
+    "id": 83,
+    "nome": "Feijão Tropeiro",
+    "descricao": "Misture feijão com farinha de mandioca, bacon e temperos. Sirva quente.",
+    "calorias": 300,
+    "proteina": 15,
+    "carboidrato": 40,
+    "ingredientes": ["Feijão", "Farinha de Mandioca", "Bacon"]
+  },
+  {
+    "id": 84,
+    "nome": "Pizza Margherita",
+    "descricao": "Prepare a massa e cubra com molho, mozzarella e manjericão. Asse até dourar.",
+    "calorias": 250,
+    "proteina": 10,
+    "carboidrato": 36,
+    "ingredientes": ["Massa de Pizza", "Molho de Tomate", "Mozzarella", "Manjericão"]
+  },
+  {
+    "id": 85,
+    "nome": "Pipoca",
+    "descricao": "Estoure os grãos de milho em uma panela até ficarem crocantes.",
+    "calorias": 120,
+    "proteina": 3,
+    "carboidrato": 30,
+    "ingredientes": ["Milho de Pipoca", "Óleo"]
+  },
+  {
+    "id": 86,
+    "nome": "Salgado de Carne",
+    "descricao": "Prepare a massa, recheie com carne e frite até dourar.",
+    "calorias": 200,
+    "proteina": 10,
+    "carboidrato": 25,
+    "ingredientes": ["Massa", "Carne", "Óleo"]
+  },
+  {
+    "id": 87,
+    "nome": "Café Gelado",
+    "descricao": "Prepare café e misture com gelo e leite. Sirva gelado.",
+    "calorias": 50,
+    "proteina": 2,
+    "carboidrato": 10,
+    "ingredientes": ["Café", "Gelo", "Leite"]
+  },
+  {
+    "id": 88,
+    "nome": "Torta de Morango",
+    "descricao": "Misture morangos, creme e asse em uma massa de torta.",
+    "calorias": 280,
+    "proteina": 4,
+    "carboidrato": 45,
+    "ingredientes": ["Morangos", "Creme", "Massa"]
+  },
+  {
+    "id": 89,
+    "nome": "Bolo de Maçã",
+    "descricao": "Misture maçãs, açúcar, canela e farinha. Asse em forma untada.",
+    "calorias": 300,
+    "proteina": 5,
+    "carboidrato": 50,
+    "ingredientes": ["Maçã", "Açúcar", "Canela", "Farinha"]
+  },
+  {
+    "id": 90,
+    "nome": "Pudim de Chocolate",
+    "descricao": "Misture leite condensado, chocolate em pó e ovos. Asse em banho-maria até firmar.",
+    "calorias": 220,
+    "proteina": 5,
+    "carboidrato": 35,
+    "ingredientes": ["Leite Condensado", "Chocolate em Pó", "Ovos"]
+  },
+  {
+    "id": 91,
+    "nome": "Bolo de Cenoura",
+    "descricao": "Misture cenoura, açúcar, ovos e farinha. Asse até dourar.",
+    "calorias": 350,
+    "proteina": 6,
+    "carboidrato": 58,
+    "ingredientes": ["Cenoura", "Açúcar", "Ovos", "Farinha"]
+  },
+  {
+    "id": 92,
+    "nome": "Ratatouille",
+    "descricao": "Misture berinjela, abobrinha, tomate e temperos. Cozinhe até ficar macio.",
+    "calorias": 150,
+    "proteina": 4,
+    "carboidrato": 25,
+    "ingredientes": ["Berinjela", "Abobrinha", "Tomate", "Temperos"]
+  },
+  {
+    "id": 93,
+    "nome": "Sopa de Legumes",
+    "descricao": "Cozinhe legumes variados e tempere a gosto. Bata no liquidificador.",
+    "calorias": 100,
+    "proteina": 3,
+    "carboidrato": 20,
+    "ingredientes": ["Legumes Variados", "Temperos"]
+  },
+  {
+    "id": 94,
+    "nome": "Brigadeiro",
+    "descricao": "Misture leite condensado, chocolate em pó e manteiga. Enrole em bolinhas.",
+    "calorias": 150,
+    "proteina": 2,
+    "carboidrato": 25,
+    "ingredientes": ["Leite Condensado", "Chocolate em Pó", "Manteiga"]
+  },
+  {
+    "id": 95,
+    "nome": "Pão de Queijo",
+    "descricao": "Misture polvilho, leite e queijo. Modele e asse até dourar.",
+    "calorias": 120,
+    "proteina": 5,
+    "carboidrato": 15,
+    "ingredientes": ["Polvilho", "Leite", "Queijo"]
+  },
+  {
+    "id": 96,
+    "nome": "Arroz Doce",
+    "descricao": "Cozinhe arroz com leite e açúcar até engrossar.",
+    "calorias": 180,
+    "proteina": 3,
+    "carboidrato": 35,
+    "ingredientes": ["Arroz", "Leite", "Açúcar"]
+  },
+  {
+    "id": 97,
+    "nome": "Pão de Milho",
+    "descricao": "Misture fubá, leite e açúcar. Asse até dourar.",
+    "calorias": 250,
+    "proteina": 6,
+    "carboidrato": 40,
+    "ingredientes": ["Fubá", "Leite", "Açúcar"]
+  },
+  {
+    "id": 98,
+    "nome": "Bolo de Abacaxi",
+    "descricao": "Misture abacaxi, açúcar e farinha. Asse até dourar.",
+    "calorias": 320,
+    "proteina": 5,
+    "carboidrato": 55,
+    "ingredientes": ["Abacaxi", "Açúcar", "Farinha"]
+  },
+  {
+    "id": 99,
+    "nome": "Pudim de Leite",
+    "descricao": "Misture leite, açúcar e ovos. Asse em banho-maria até firmar.",
+    "calorias": 200,
+    "proteina": 5,
+    "carboidrato": 30,
+    "ingredientes": ["Leite", "Açúcar", "Ovos"]
+  },
+  {
+    "id": 100,
+    "nome": "Pasta de Legumes",
+    "descricao": "Misture legumes cozidos, maionese e temperos. Sirva com torradas.",
+    "calorias": 150,
+    "proteina": 4,
+    "carboidrato": 20,
+    "ingredientes": ["Legumes", "Maionese", "Temperos"]
   }
 ]
