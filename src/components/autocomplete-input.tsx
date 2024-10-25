@@ -100,7 +100,7 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
                 onChange={handleInputChange}
                 onKeyDown={handleKeyDown}
                 placeholder={placeholder}
-                className={`block w-full ${className}`}
+                className={`block w-full placeholder:text-center ${className}`}
             />
 
             {suggestions.length > 0 && (
