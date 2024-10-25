@@ -93,8 +93,9 @@
   { "id": 94, "nome": "Arroz integral", "calorias": 111, "proteina": 2.6, "carboidrato": 23 },
   { "id": 95, "nome": "Pão integral", "calorias": 265, "proteina": 13, "carboidrato": 49 },
   { "id": 96, "nome": "Pão branco", "calorias": 265, "proteina": 9, "carboidrato": 49 },
-  { "id": 97, "nome": "Tortilha de milho", "calorias": 218, "proteina": 5.6, "carboidrato": 43 },
+  { "id": 97, "nome": "Açúcar", "calorias": 0, "proteina":0, "carboidrato": 0 },
   { "id": 98, "nome": "Tortilha de trigo", "calorias": 210, "proteina": 6, "carboidrato": 35 },
   { "id": 99, "nome": "Waffle", "calorias": 291, "proteina": 6.5, "carboidrato": 39 },
   { "id": 100, "nome": "Panqueca", "calorias": 227, "proteina": 6, "carboidrato": 33 }
+
 ]

@@ -16,7 +16,7 @@ interface ListaCardsProps {
     ingredientesSelecionados: string[];
 }
 
-const ListaCards: React.FC<ListaCardsProps> = ({ ingredientesSelecionados }) => {
+const ListaCards: React.FC<ListaCardsProps> = ({ingredientesSelecionados}) => {
     const [receitas, setReceitas] = React.useState<Receita[]>([]);
 
     // Carregar os dados das receitas quando o componente é montado
@@ -30,39 +30,41 @@ const ListaCards: React.FC<ListaCardsProps> = ({ ingredientesSelecionados }) => 
         fetchReceitas();
     }, []);
 
-    const filteredReceitas = receitas.filter(receita =>
-        receita.ingredientes.some(ingrediente => {
-            // Normaliza e divide o ingrediente em palavras
-            const normalizedWordsInIngrediente = ingrediente
+    const filteredReceitas = ingredientesSelecionados.length > 0 ? receitas.filter(receita => {
+        // Normaliza e divide os ingredientes da receita em palavras
+        const normalizedIngredientsInRecipe = receita.ingredientes.map(ingrediente =>
+            ingrediente
                 .normalize("NFD")
                 .replace(/[\u0300-\u036f]/g, "")
                 .toLowerCase()
-                .split(/\s+/); // Divide o ingrediente em palavras
+                .split(/\s+/)
+        );
 
-            return ingredientesSelecionados.some(selectedItem => {
-                // Normaliza e divide o item selecionado em palavras
-                const normalizedSelectedWords = selectedItem
-                    .normalize("NFD")
-                    .replace(/[\u0300-\u036f]/g, "")
-                    .toLowerCase()
-                    .split(/\s+/); // Divide o item selecionado em palavras
+        // Para cada ingrediente selecionado, verifica se todos estão nos ingredientes da receita
+        return ingredientesSelecionados.every(selectedItem => {
+            // Normaliza e divide o item selecionado em palavras
+            const normalizedSelectedWords = selectedItem
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .toLowerCase()
+                .split(/\s+/);
 
-                // Verifica se alguma palavra do item selecionado corresponde a uma palavra no ingrediente
-                return normalizedSelectedWords.some(word =>
-                    normalizedWordsInIngrediente.some(ingredienteWord =>
-                        ingredienteWord.includes(word)
-                    )
-                );
-            });
-        })
-    );
+            // Verifica se todas as palavras do item selecionado estão presentes nos ingredientes da receita
+            return normalizedSelectedWords.every(selectedWord =>
+                normalizedIngredientsInRecipe.some(ingredientWords =>
+                    ingredientWords.includes(selectedWord)
+                )
+            );
+        });
+    }) : [];
 
     return (
         <div className="mt-4">
             <h2 className="text-lg font-bold"></h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {filteredReceitas.length > 0 ? (
-                    filteredReceitas.map(receita => (
+
+            {filteredReceitas.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {filteredReceitas.map(receita => (
                         <div key={receita.id} className="border p-4 rounded-md">
                             <h3 className="font-semibold">{receita.nome}</h3>
                             <p className="text-sm">{receita.descricao}</p>
@@ -71,17 +73,19 @@ const ListaCards: React.FC<ListaCardsProps> = ({ ingredientesSelecionados }) => 
                             <p>Carboidrato: {receita.carboidrato}g</p>
                             <p>Ingredientes: {receita.ingredientes.join(', ')}</p>
                         </div>
-                    ))
-                ) : (
+                    ))}
+                </div>
+            ) : (
 
+                <div className="flex flex-row items-center justify-center w-full">
 
-                    <div className="flex inset-0  items-center justify-center text-gray-400 opacity-75 text-center">
-                        {/*<p>Nenhuma receita encontrada com os alimentos selecionados.</p>*/}
-                        <p className="text-lg font-semibold">Selecione os ingredientes que você tem para sugestões de
-                            receita</p>
-                    </div>
-                )}
-            </div>
+                    <p className="text-gray-400 opacity-75 text-center text-lg font-semibold">
+                        Selecione os ingredientes que você tem para sugestões de receita
+                    </p>
+
+                </div>
+            )}
+
         </div>
     );
 };

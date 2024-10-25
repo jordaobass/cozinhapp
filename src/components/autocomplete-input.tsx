@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface Alimento {
     id: number;
@@ -108,9 +109,7 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
                         <li
                             key={index}
                             onClick={() => handleSelectSuggestion(suggestion)}
-                            className={`cursor-pointer px-4 py-2 ${
-                                index === activeSuggestionIndex ? 'bg-red-500 text-white' : 'hover:bg-red-500 hover:text-white'
-                            }`}
+                            className={`cursor-pointer px-4 py-2 ${index === activeSuggestionIndex ? 'bg-red-500 text-white' : 'hover:bg-red-500 hover:text-white'}`}
                         >
                             {suggestion}
                         </li>
@@ -119,18 +118,27 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
             )}
 
             <div className="mt-2 mb-2 flex flex-wrap gap-2">
-                {selectedItems.map((item, index) => (
-                    <Badge key={index} className="flex items-center space-x-2">
-                        {item}
-                        <button
-                            onClick={() => handleRemoveItem(item)}
-                            className="ml-2 text-white bg-red-600 hover:bg-red-500
-                            rounded-full px-2 flex items-center justify-center h-7 w-7"
+                <AnimatePresence>
+                    {selectedItems.map((item) => (
+                        <motion.div
+                            key={item}
+                            initial={{ opacity: 0, scale: 0 }} // Animação inicial ao adicionar
+                            animate={{ opacity: 1, scale: 1 }} // Animação final ao adicionar
+                            exit={{ opacity: 0, scale: 1.5 }}  // Animação de saída ao remover
+                            transition={{ duration: 0.5 }}      // Duração da animação
                         >
-                            x
-                        </button>
-                    </Badge>
-                ))}
+                            <Badge className="flex items-center space-x-2">
+                                {item}
+                                <button
+                                    onClick={() => handleRemoveItem(item)}
+                                    className="ml-2 text-white bg-red-600 hover:bg-red-500 rounded-full px-2 flex items-center justify-center h-7 w-7"
+                                >
+                                    x
+                                </button>
+                            </Badge>
+                        </motion.div>
+                    ))}
+                </AnimatePresence>
             </div>
         </div>
     );
