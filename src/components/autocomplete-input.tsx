@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 
@@ -25,18 +25,19 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [selectedItems, setSelectedItems] = useState<string[]>([]);
     const [items, setItems] = useState<string[]>([]);
+    const [activeSuggestionIndex, setActiveSuggestionIndex] = useState<number>(-1);
+    const inputRef = useRef<HTMLInputElement>(null);
 
-    // Usando useEffect para buscar os dados do JSON
     useEffect(() => {
         const fetchAlimentos = async () => {
-            const response = await fetch('/data/alimentos.json'); // Ajuste para o caminho correto
+            const response = await fetch('/data/alimentos.json');
             const data: Alimento[] = await response.json();
             const foodNames = data.map(item => item.nome);
-            setItems(foodNames); // Definindo os nomes dos alimentos no estado
+            setItems(foodNames);
         };
 
         fetchAlimentos();
-    }, []); // Executa apenas uma vez na montagem do componente
+    }, []);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
@@ -47,6 +48,7 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
                 item.toLowerCase().startsWith(value.toLowerCase())
             );
             setSuggestions(filteredSuggestions);
+            setActiveSuggestionIndex(-1);
         } else {
             setSuggestions([]);
         }
@@ -56,35 +58,59 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
         if (!selectedItems.includes(suggestion)) {
             const newSelectedItems = [...selectedItems, suggestion];
             setSelectedItems(newSelectedItems);
-            onSelectedItemsChange(newSelectedItems); // Atualiza as palavras selecionadas no componente pai
+            onSelectedItemsChange(newSelectedItems);
         }
         setInputValue('');
         setSuggestions([]);
+        setActiveSuggestionIndex(-1);
+        if (inputRef.current) {
+            inputRef.current.focus();
+        }
     };
 
     const handleRemoveItem = (item: string) => {
         const newSelectedItems = selectedItems.filter((selected) => selected !== item);
         setSelectedItems(newSelectedItems);
-        onSelectedItemsChange(newSelectedItems); // Atualiza as palavras selecionadas no componente pai
+        onSelectedItemsChange(newSelectedItems);
+    };
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'ArrowDown') {
+            setActiveSuggestionIndex((prevIndex) =>
+                prevIndex < suggestions.length - 1 ? prevIndex + 1 : prevIndex
+            );
+        } else if (e.key === 'ArrowUp') {
+            setActiveSuggestionIndex((prevIndex) =>
+                prevIndex > 0 ? prevIndex - 1 : prevIndex
+            );
+        } else if (e.key === 'Enter') {
+            if (activeSuggestionIndex >= 0 && activeSuggestionIndex < suggestions.length) {
+                handleSelectSuggestion(suggestions[activeSuggestionIndex]);
+            }
+        }
     };
 
     return (
-        <div className={`relative w-full`}>
+        <div className="relative w-full">
             <Input
+                ref={inputRef}
                 type="text"
                 value={inputValue}
                 onChange={handleInputChange}
+                onKeyDown={handleKeyDown}
                 placeholder={placeholder}
                 className={`block w-full ${className}`}
             />
 
             {suggestions.length > 0 && (
-                <ul className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto">
+                <ul className="absolute z-10 w-full mt-1 bg-white border dark:text-black border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto">
                     {suggestions.map((suggestion, index) => (
                         <li
                             key={index}
                             onClick={() => handleSelectSuggestion(suggestion)}
-                            className="cursor-pointer px-4 py-2 hover:bg-red-500 hover:text-white"
+                            className={`cursor-pointer px-4 py-2 ${
+                                index === activeSuggestionIndex ? 'bg-red-500 text-white' : 'hover:bg-red-500 hover:text-white'
+                            }`}
                         >
                             {suggestion}
                         </li>
@@ -98,7 +124,8 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
                         {item}
                         <button
                             onClick={() => handleRemoveItem(item)}
-                            className="ml-2 text-white bg-red-500 hover:bg-red-700 rounded-full px-2"
+                            className="ml-2 text-white bg-red-600 hover:bg-red-500
+                            rounded-full px-2 flex items-center justify-center h-7 w-7"
                         >
                             x
                         </button>

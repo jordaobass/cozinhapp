@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import AutocompleteInput from "@/components/AutocompleteInput";
+import AutocompleteInput from "@/components/autocomplete-input";
 import ListaCards from "@/components/lista-card"; // Certifique-se de que o caminho esteja correto
 
 export default function Home() {
@@ -19,8 +19,8 @@ export default function Home() {
                 />
             </div>
 
-            <div className="flex justify-center items-center">
-                <ListaCards selectedItems={selectedKeywords}  />
+            <div className="flex justify-center items-center w-full">
+                <ListaCards ingredientesSelecionados={selectedKeywords}  />
             </div>
         </div>
     );
