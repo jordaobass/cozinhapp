@@ -14,7 +14,7 @@ export default function Home() {
             <div className="flex flex-row justify-center mb-5 w-full">
                 <AutocompleteInput
                     placeholder="Digite aqui os seus ingredientes"
-                    className="h-12 px-4 border text-lg focus:ring-2"
+                    className="h-12 px-4 border text-lg focus:ring-2 mt-10"
                     onSelectedItemsChange={setSelectedKeywords}
                 />
             </div>

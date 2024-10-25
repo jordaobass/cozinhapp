@@ -80,7 +80,7 @@ const ListaCards: React.FC<ListaCardsProps> = ({ingredientesSelecionados}) => {
                 <div className="flex flex-row items-center justify-center w-full">
 
                     <p className="text-gray-400 opacity-75 text-center text-lg font-semibold">
-                        Selecione os ingredientes que você tem para sugestões de receita
+                        Selecione os ingredientes que você possui para sugestões de receita iradas
                     </p>
 
                 </div>
