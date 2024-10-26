@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import AutocompleteInput from "@/components/autocomplete-input";
-import ListaCards from "@/components/lista-card"; // Certifique-se de que o caminho esteja correto
+import ListaCards from "@/components/lista-card";
+import TypingAnimation from "@/components/typing-animation"; // Certifique-se de que o caminho esteja correto
 
 export default function Home() {
     const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]);
@@ -11,6 +12,10 @@ export default function Home() {
 
     return (
         <div className="flex flex-col items-center justify-center mx-10 mb-5 ">
+
+            <div className="flex flex-row justify-center mt-10 w-full">
+            <TypingAnimation />
+            </div>
             <div className="flex flex-row justify-center mb-5 w-full">
                 <AutocompleteInput
                     placeholder="Digite aqui os seus ingredientes"

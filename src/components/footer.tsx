@@ -6,14 +6,16 @@ import Image from "next/image";
 
 export default function Footer() {
     return (
-        <footer className="dark bg-black text-white py-5 bottom-0 w-full  lg:top-0 lg:left-0 lg:right-0">
+        <footer
+            className="w-full py-10  lg:top-0 lg:left-0 lg:right-0 bg-red-600 bg-gradient-to-t from-red-500 dark:from-red-600 to-gray-100 dark:to-gray-900 text-white">
             <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between">
                 <div className="flex items-center space-x-4">
                     {/*        <Link href="#" className="text-white hover:text-gray-300" prefetch={false}>
                         <YoutubeIcon className="h-6 w-6"/>
                         <span className="sr-only">YouTube</span>
                     </Link>*/}
-                    <Link href="https://www.github.com.br/jordaobass" className="text-white hover:text-gray-300" prefetch={false}>
+                    <Link href="https://www.github.com.br/jordaobass" className="text-white hover:text-gray-300"
+                          prefetch={false}>
                         <Image src={githubIcon} alt="Github Icon" className="h-6 w-6 dark:invert"/>
 
                         {/*              <GithubIcon className="h-6 w-6"/>*/}
@@ -24,7 +26,7 @@ export default function Footer() {
                         <span className="sr-only">Twitter</span>
                     </Link>*/}
                 </div>
-                <p className="mt-4 md:mt-0 text-sm text-gray-300">&copy; 2024 Nexttag Inc. All rights reserved.</p>
+                <p className="mt-4 md:mt-0 text-sm text-black dark:text-gray-300 ">&copy; 2024 Nexttag Inc. All rights reserved.</p>
             </div>
         </footer>
     )

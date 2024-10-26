@@ -18,10 +18,13 @@ export default function RootLayout({
         <body>
         <ThemeProvider
             attribute="class"
-            defaultTheme="dark"
+            defaultTheme="light"
             disableTransitionOnChange
         >
-            {children}
+
+                {children}
+
+
         </ThemeProvider>
         </body>
         </html>

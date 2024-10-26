@@ -1,5 +1,5 @@
 [
-  { "id": 1, "nome": "Ovo", "calorias": 155, "proteina": 13, "carboidrato": 1.1 },
+  { "id": 1, "nome": "Ovos", "calorias": 155, "proteina": 13, "carboidrato": 1.1 },
   { "id": 2, "nome": "Arroz", "calorias": 130, "proteina": 2.7, "carboidrato": 28.6 },
   { "id": 3, "nome": "Feijão", "calorias": 127, "proteina": 8.7, "carboidrato": 22.8 },
   { "id": 4, "nome": "Banana", "calorias": 89, "proteina": 1.1, "carboidrato": 22.8 },

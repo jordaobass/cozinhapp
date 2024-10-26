@@ -11,7 +11,7 @@ export default function AuthLayout({
     return (
         <>
             <Header/>
-            <div className="flex min-h-lvh mt-0 justify-center lg:px-4 sm:px-0">
+            <div className="flex min-h-screen mt-0 justify-center lg:px-10 sm:px-0 bg-gray-100 dark:bg-gray-900 ">
                 <div className="w-full">{children}</div>
             </div>
             <Footer/>
