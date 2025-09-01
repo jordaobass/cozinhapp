@@ -37,7 +37,7 @@
   { "id": 36, "nome": "Carne bovina fígado", "calorias": 135, "proteina": 20, "carboidrato": 4 },
   { "id": 37, "nome": "Peixe tilápia", "calorias": 128, "proteina": 26, "carboidrato": 0 },
   { "id": 38, "nome": "Peixe bacalhau", "calorias": 105, "proteina": 23, "carboidrato": 0 },
-  { "id": 39, "nome": "Peixe salmão", "calorias": 206, "proteina": 22, "carboidrato": 0 },
+  { "id": 39, "nome": "salmão", "calorias": 206, "proteina": 22, "carboidrato": 0 },
   { "id": 40, "nome": "Peixe atum", "calorias": 132, "proteina": 29, "carboidrato": 0 },
   { "id": 41, "nome": "Peixe sardinha", "calorias": 208, "proteina": 25, "carboidrato": 0 },
   { "id": 42, "nome": "Peixe linguado", "calorias": 91, "proteina": 20, "carboidrato": 0 },

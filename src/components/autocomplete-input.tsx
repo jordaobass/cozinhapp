@@ -14,12 +14,14 @@ interface Alimento {
 
 interface AutocompleteInputProps {
     onSelectedItemsChange: (items: string[]) => void;
+    onExactMatchChange?: (exactMatch: boolean) => void;
     className?: string;
     placeholder?: string;
 }
 
 const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
                                                                  onSelectedItemsChange,
+                                                                 onExactMatchChange,
                                                                  className = '',
                                                                  placeholder = ''
                                                              }) => {
@@ -28,6 +30,7 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
     const [selectedItems, setSelectedItems] = useState<string[]>([]);
     const [items, setItems] = useState<string[]>([]);
     const [activeSuggestionIndex, setActiveSuggestionIndex] = useState<number>(-1);
+    const [exactMatch, setExactMatch] = useState<boolean>(false);
     const inputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
@@ -94,6 +97,13 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
         }
     };
 
+    const handleExactMatchChange = (checked: boolean) => {
+        setExactMatch(checked);
+        if (onExactMatchChange) {
+            onExactMatchChange(checked);
+        }
+    };
+
     return (
         <div className="relative w-full">
             <Input
@@ -103,7 +113,7 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
                 onChange={handleInputChange}
                 onKeyDown={handleKeyDown}
                 placeholder={placeholder}
-                className={`block w-full placeholder:text-center ${className}`}
+                className={`block w-full placeholder:text-center bg-white dark:bg-white text-black ${className}`}
             />
 
             {suggestions.length > 0 && (
@@ -120,7 +130,21 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
                 </ul>
             )}
 
-            <div className="mt-2 mb-2 flex flex-wrap gap-2">
+            {/* Checkbox para match exato */}
+            <div className="flex items-center gap-2 mt-2 mb-2">
+                <input
+                    type="checkbox"
+                    id="exactMatch"
+                    checked={exactMatch}
+                    onChange={(e) => handleExactMatchChange(e.target.checked)}
+                    className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded focus:ring-red-500 focus:ring-2"
+                />
+                <label htmlFor="exactMatch" className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    🎯 Match exato (mais rigoroso)
+                </label>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
                 <AnimatePresence>
                     {selectedItems.map((item) => (
                         <motion.div

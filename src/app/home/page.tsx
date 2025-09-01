@@ -7,6 +7,7 @@ import TypingAnimation from "@/components/typing-animation"; // Certifique-se de
 
 export default function Home() {
     const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]);
+    const [exactMatch, setExactMatch] = useState<boolean>(false);
 
 
 
@@ -24,11 +25,12 @@ export default function Home() {
                     placeholder="Digite aqui os seus ingredientes"
                     className="h-12 px-4 border text-lg focus:ring-2 mt-10"
                     onSelectedItemsChange={setSelectedKeywords}
+                    onExactMatchChange={setExactMatch}
                 />
             </div>
 
             <div className="flex justify-center items-center w-full">
-                <ListaCards ingredientesSelecionados={selectedKeywords}  />
+                <ListaCards ingredientesSelecionados={selectedKeywords} exactMatch={exactMatch} />
             </div>
         </div>
     );

@@ -1653,7 +1653,7 @@
         "categoria": "carboidrato"
       },
       {
-        "item": "Salmão sashimi",
+        "item": "Salmão",
         "quantidade": "300g",
         "categoria": "proteína"
       },
@@ -15622,7 +15622,7 @@
     ],
     "ingredientes": [
       {
-        "item": "Peixe salmão",
+        "item": "Salmão",
         "quantidade": "500g",
         "categoria": "principal"
       },
@@ -26199,7 +26199,7 @@
     ],
     "ingredientes": [
       {
-        "item": "Peixe salmão",
+        "item": "salmão",
         "quantidade": "500g",
         "categoria": "principal"
       },
@@ -31875,7 +31875,7 @@
     ],
     "ingredientes": [
       {
-        "item": "Frango frita",
+        "item": "Frango frito",
         "quantidade": "500g",
         "categoria": "principal"
       },

@@ -6,6 +6,18 @@ import LoadingSkeleton from './loading-skeleton';
 import { Clock, Users, Flame, ChefHat } from 'lucide-react';
 import { normalizeWords } from '@/utils/normalize-text';
 
+// Função para normalizar e comparar ingredientes
+const ingredientMatches = (selectedItem: string, recipeIngredient: string): boolean => {
+    const normalizedSelected = normalizeWords(selectedItem);
+    const normalizedRecipe = normalizeWords(recipeIngredient);
+    
+    return normalizedSelected.some(selectedWord => 
+        normalizedRecipe.some(recipeWord =>
+            recipeWord.includes(selectedWord) || selectedWord.includes(recipeWord)
+        )
+    );
+};
+
 interface Ingrediente {
     item: string;
     quantidade: string;
@@ -37,9 +49,10 @@ interface Receita {
 
 interface ListaCardsProps {
     ingredientesSelecionados: string[];
+    exactMatch?: boolean;
 }
 
-const ListaCards: React.FC<ListaCardsProps> = ({ ingredientesSelecionados }) => {
+const ListaCards: React.FC<ListaCardsProps> = ({ ingredientesSelecionados, exactMatch = false }) => {
     const [receitas, setReceitas] = React.useState<Receita[]>([]);
     const [allRecipes, setAllRecipes] = React.useState<Receita[]>([]);
     const [loading, setLoading] = React.useState(false);
@@ -78,15 +91,71 @@ const ListaCards: React.FC<ListaCardsProps> = ({ ingredientesSelecionados }) => 
                     
                     const normalizedRecipeWords = normalizeWords(recipeSearchText);
 
-                    return ingredientesSelecionados.every(selectedItem => {
-                        const normalizedSelectedWords = normalizeWords(selectedItem);
+                    if (exactMatch) {
+                        // MODO EXATO: Receita deve ter EXATAMENTE os ingredientes selecionados (nem mais, nem menos)
+                        
+                        const recipeIngredients = receita.ingredientes;
+                        
+                        // 1. Número de ingredientes deve ser igual ao número selecionado
+                        if (recipeIngredients.length !== ingredientesSelecionados.length) {
+                            return false;
+                        }
+                        
+                        // 2. Todos os ingredientes selecionados devem estar na receita
+                        const hasAllSelected = ingredientesSelecionados.every(selectedItem => {
+                            return recipeIngredients.some(recipeIng => 
+                                ingredientMatches(selectedItem, recipeIng.item)
+                            );
+                        });
+                        
+                        // 3. Todos os ingredientes da receita devem estar na seleção
+                        const hasOnlySelected = recipeIngredients.every(recipeIng => {
+                            return ingredientesSelecionados.some(selectedItem => 
+                                ingredientMatches(selectedItem, recipeIng.item)
+                            );
+                        });
+                        
+                        return hasAllSelected && hasOnlySelected;
+                    } else {
+                        // MODO FLEXÍVEL: Busca inteligente por partes dos ingredientes
+                        const matchedIngredients = ingredientesSelecionados.filter(selectedItem => {
+                            const normalizedSelectedWords = normalizeWords(selectedItem);
 
-                        return normalizedSelectedWords.every(selectedWord =>
-                            normalizedRecipeWords.some(recipeWord =>
-                                recipeWord.includes(selectedWord) || selectedWord.includes(recipeWord)
-                            )
-                        );
-                    });
+                            return normalizedSelectedWords.some(selectedWord => {
+                                return normalizedRecipeWords.some(recipeWord => {
+                                    // 1. Match exato
+                                    if (recipeWord === selectedWord) return true;
+                                    
+                                    // 2. Busca por partes (salmão → salmão sashimi, arroz → arroz japonês)
+                                    if (selectedWord.length >= 3) {
+                                        // Se o ingrediente selecionado está contido no ingrediente da receita
+                                        if (recipeWord.includes(selectedWord)) return true;
+                                        // Se o ingrediente da receita está contido no selecionado  
+                                        if (selectedWord.includes(recipeWord)) return true;
+                                    }
+                                    
+                                    // 3. Match por palavras-chave similares
+                                    if (selectedWord.length >= 4 && recipeWord.length >= 4) {
+                                        // Verifica se uma palavra contém substancialmente a outra
+                                        const similarity = Math.min(selectedWord.length, recipeWord.length) / 
+                                                         Math.max(selectedWord.length, recipeWord.length);
+                                        if (similarity >= 0.6 && 
+                                            (recipeWord.includes(selectedWord) || selectedWord.includes(recipeWord))) {
+                                            return true;
+                                        }
+                                    }
+                                    
+                                    return false;
+                                });
+                            });
+                        });
+
+                        // Threshold inteligente baseado no número de ingredientes
+                        const matchThreshold = ingredientesSelecionados.length <= 2 ? 1 : 
+                                              Math.ceil(ingredientesSelecionados.length * 0.7);
+                        
+                        return matchedIngredients.length >= matchThreshold;
+                    }
                 });
 
                 setReceitas(filtered);
@@ -101,7 +170,7 @@ const ListaCards: React.FC<ListaCardsProps> = ({ ingredientesSelecionados }) => 
         // Debounce para evitar filtros muito frequentes
         const timeoutId = setTimeout(filterRecipes, 300);
         return () => clearTimeout(timeoutId);
-    }, [ingredientesSelecionados, allRecipes.length]); // Usa allRecipes.length para evitar re-renders desnecessários
+    }, [ingredientesSelecionados, exactMatch, allRecipes.length]); // Inclui exactMatch nas dependências
 
     // Receitas já estão filtradas no useEffect, então apenas usa o estado
     const filteredReceitas = receitas;
@@ -157,15 +226,15 @@ const ListaCards: React.FC<ListaCardsProps> = ({ ingredientesSelecionados }) => 
                         const totalTime = receita.tempoPreparoMinutos + receita.tempoCozimentoMinutos;
                         
                         return (
-                            <div key={receita.id} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 hover:scale-[1.02]">
+                            <div key={receita.id} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-600 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 hover:scale-[1.02]">
                                 {/* Recipe header with icon */}
                                 <div className="flex items-start gap-3 mb-4">
-                                    <div className="p-2 bg-gradient-to-br from-orange-100 to-red-100 dark:from-orange-900 dark:to-red-900 rounded-lg flex-shrink-0">
-                                        <ChefHat className="w-6 h-6 text-orange-500" />
+                                    <div className="p-2 bg-gradient-to-br from-orange-100 to-red-100 dark:from-orange-800 dark:to-red-800 rounded-lg flex-shrink-0">
+                                        <ChefHat className="w-6 h-6 text-orange-500 dark:text-orange-300" />
                                     </div>
                                     <div className="flex-1">
-                                        <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-tight">{receita.nome}</h3>
-                                        <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{receita.categoria}</p>
+                                        <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 leading-tight">{receita.nome}</h3>
+                                        <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{receita.categoria}</p>
                                     </div>
                                 </div>
 
@@ -186,14 +255,14 @@ const ListaCards: React.FC<ListaCardsProps> = ({ ingredientesSelecionados }) => 
 
                                 {/* Description */}
                                 <div className="mb-4">
-                                    <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
+                                    <p className="text-sm text-gray-700 dark:text-gray-200 mb-3">
                                         {receita.descricaoRapida}
                                     </p>
-                                    <div className="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg">
-                                        <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">
+                                    <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border dark:border-gray-700">
+                                        <p className="text-xs text-gray-600 dark:text-gray-300 mb-2">
                                             <span className="font-semibold">Ingredientes principais:</span>
                                         </p>
-                                        <p className="text-sm text-gray-700 dark:text-gray-300">
+                                        <p className="text-sm text-gray-700 dark:text-gray-200">
                                             {receita.ingredientes.slice(0, 4).map(ing => ing.item).join(' • ')}
                                             {receita.ingredientes.length > 4 && ` • +${receita.ingredientes.length - 4} mais`}
                                         </p>
@@ -201,12 +270,12 @@ const ListaCards: React.FC<ListaCardsProps> = ({ ingredientesSelecionados }) => 
                                 </div>
 
                                 {/* Nutrition info bar */}
-                                <div className="flex items-center gap-4 mb-4 p-3 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-lg">
+                                <div className="flex items-center gap-4 mb-4 p-3 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/30 dark:to-red-900/30 rounded-lg border dark:border-gray-700">
                                     <span className="flex items-center gap-1 text-sm font-medium text-orange-700 dark:text-orange-300">
                                         <Flame className="w-4 h-4" />
                                         {receita.calorias}
                                     </span>
-                                    <div className="flex gap-3 text-xs text-gray-600 dark:text-gray-400">
+                                    <div className="flex gap-3 text-xs text-gray-600 dark:text-gray-300">
                                         <span>{receita.nutricao.proteina}g prot</span>
                                         <span>{receita.nutricao.carboidrato}g carb</span>
                                         <span>{receita.nutricao.gordura}g gord</span>
