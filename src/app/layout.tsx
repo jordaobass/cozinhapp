@@ -43,6 +43,19 @@ export default function RootLayout({
             <meta name="google-adsense-account" content="ca-pub-3660869229459383" />
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3660869229459383"
                  crossOrigin="anonymous"></script>
+            
+            {/* Google Analytics */}
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-3MCRYK0H14"></script>
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-3MCRYK0H14');
+                    `,
+                }}
+            />
         </head>
         <body>
         <ThemeProvider

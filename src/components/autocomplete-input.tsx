@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from 'framer-motion';
+import { normalizeText } from '@/utils/normalize-text';
 
 interface Alimento {
     id: number;
@@ -45,9 +46,11 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
         setInputValue(value);
 
         if (value) {
-            const filteredSuggestions = items.filter((item) =>
-                item.toLowerCase().startsWith(value.toLowerCase())
-            );
+            const normalizedInput = normalizeText(value);
+            const filteredSuggestions = items.filter((item) => {
+                const normalizedItem = normalizeText(item);
+                return normalizedItem.includes(normalizedInput);
+            });
             setSuggestions(filteredSuggestions);
             setActiveSuggestionIndex(-1);
         } else {

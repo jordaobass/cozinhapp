@@ -6,14 +6,33 @@ import { motion } from 'framer-motion'; // Importando motion para animações
 import Link from 'next/link';
 import { Button } from "@/components/ui/button"; // Importando Button
 
+interface Ingrediente {
+    item: string;
+    quantidade: string;
+    categoria: string;
+}
+
+interface Nutricao {
+    proteina: number;
+    carboidrato: number;
+    gordura: number;
+    fibra: number;
+}
+
 interface Receita {
     id: number;
     nome: string;
-    descricao: string;
+    categoria: string;
+    dificuldade: string;
+    tempoPreparoMinutos: number;
+    tempoCozimentoMinutos: number;
+    porcoes: number;
+    descricaoRapida: string;
+    instrucoes: string[];
+    ingredientes: Ingrediente[];
+    tags: string[];
     calorias: number;
-    proteina: number;
-    carboidrato: number;
-    ingredientes: string[];
+    nutricao: Nutricao;
 }
 
 const ReceitaPage: React.FC = () => {
@@ -40,27 +59,31 @@ const ReceitaPage: React.FC = () => {
         "@context": "https://schema.org",
         "@type": "Recipe",
         "name": receita.nome,
-        "description": receita.descricao,
-        "recipeIngredient": receita.ingredientes,
+        "description": receita.descricaoRapida,
+        "recipeIngredient": receita.ingredientes.map(ing => `${ing.quantidade} ${ing.item}`),
         "nutrition": {
             "@type": "NutritionInformation",
             "calories": `${receita.calorias} cal`,
-            "proteinContent": `${receita.proteina}g`,
-            "carbohydrateContent": `${receita.carboidrato}g`
+            "proteinContent": `${receita.nutricao.proteina}g`,
+            "carbohydrateContent": `${receita.nutricao.carboidrato}g`
         },
-        "recipeInstructions": [
-            {
-                "@type": "HowToStep",
-                "text": receita.descricao
-            }
-        ],
+        "recipeInstructions": receita.instrucoes.map((instrucao, index) => ({
+            "@type": "HowToStep",
+            "position": index + 1,
+            "text": instrucao
+        })),
+        "prepTime": `PT${receita.tempoPreparoMinutos}M`,
+        "cookTime": `PT${receita.tempoCozimentoMinutos}M`,
+        "totalTime": `PT${receita.tempoPreparoMinutos + receita.tempoCozimentoMinutos}M`,
+        "recipeYield": receita.porcoes,
         "author": {
             "@type": "Organization",
             "name": "Cozinhapp"
         },
         "datePublished": new Date().toISOString(),
-        "recipeCategory": "Prato Principal",
-        "recipeCuisine": "Brasileira"
+        "recipeCategory": receita.categoria,
+        "recipeCuisine": "Brasileira",
+        "keywords": receita.tags.join(", ")
     };
 
     return (
@@ -81,16 +104,69 @@ const ReceitaPage: React.FC = () => {
                 <h2 className="mt-4 text-xl font-semibold text-gray-900 dark:text-white">Ingredientes:</h2>
                 <ul className="list-disc ml-6">
                     {receita.ingredientes.map((ingrediente, index) => (
-                        <li key={index} className="text-gray-700 dark:text-gray-300">{ingrediente}</li>
+                        <li key={index} className="text-gray-700 dark:text-gray-300">
+                            <span className="font-medium">{ingrediente.quantidade}</span> {ingrediente.item}
+                        </li>
                     ))}
                 </ul>
 
                 <h2 className="mt-10 text-xl font-semibold text-gray-900 dark:text-white">Modo de Preparo:</h2>
-                <p className="mt-4 mb-10 text-justify text-gray-700 dark:text-gray-300">{receita.descricao}</p>
+                <ol className="mt-4 mb-10 space-y-3">
+                    {receita.instrucoes.map((instrucao, index) => (
+                        <li key={index} className="flex gap-3">
+                            <span className="flex-shrink-0 w-6 h-6 bg-red-500 text-white text-sm font-bold rounded-full flex items-center justify-center">
+                                {index + 1}
+                            </span>
+                            <span className="text-gray-700 dark:text-gray-300">{instrucao}</span>
+                        </li>
+                    ))}
+                </ol>
 
-                <p className="mt-4 text-gray-900 dark:text-white">Calorias: {receita.calorias}</p>
-                <p className="text-gray-900 dark:text-white">Proteína: {receita.proteina}g</p>
-                <p className="text-gray-900 dark:text-white">Carboidrato: {receita.carboidrato}g</p>
+                {/* Recipe Info */}
+                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mb-6">
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Informações da Receita</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                        <div>
+                            <span className="text-gray-600 dark:text-gray-400">Tempo de preparo:</span>
+                            <p className="font-medium text-gray-900 dark:text-white">{receita.tempoPreparoMinutos} min</p>
+                        </div>
+                        <div>
+                            <span className="text-gray-600 dark:text-gray-400">Tempo de cozimento:</span>
+                            <p className="font-medium text-gray-900 dark:text-white">{receita.tempoCozimentoMinutos} min</p>
+                        </div>
+                        <div>
+                            <span className="text-gray-600 dark:text-gray-400">Porções:</span>
+                            <p className="font-medium text-gray-900 dark:text-white">{receita.porcoes} pessoas</p>
+                        </div>
+                        <div>
+                            <span className="text-gray-600 dark:text-gray-400">Dificuldade:</span>
+                            <p className="font-medium text-gray-900 dark:text-white">{receita.dificuldade}</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Nutrition Info */}
+                <div className="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg mb-6">
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Informações Nutricionais (por porção)</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                        <div>
+                            <span className="text-orange-600 dark:text-orange-400">Calorias:</span>
+                            <p className="font-medium text-gray-900 dark:text-white">{receita.calorias} kcal</p>
+                        </div>
+                        <div>
+                            <span className="text-orange-600 dark:text-orange-400">Proteínas:</span>
+                            <p className="font-medium text-gray-900 dark:text-white">{receita.nutricao.proteina}g</p>
+                        </div>
+                        <div>
+                            <span className="text-orange-600 dark:text-orange-400">Carboidratos:</span>
+                            <p className="font-medium text-gray-900 dark:text-white">{receita.nutricao.carboidrato}g</p>
+                        </div>
+                        <div>
+                            <span className="text-orange-600 dark:text-orange-400">Gorduras:</span>
+                            <p className="font-medium text-gray-900 dark:text-white">{receita.nutricao.gordura}g</p>
+                        </div>
+                    </div>
+                </div>
 
                 {/* Botão de Voltar com Animação */}
                 <div className="mt-6 text-center">

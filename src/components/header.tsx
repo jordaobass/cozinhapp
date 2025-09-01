@@ -4,6 +4,7 @@ import Head from 'next/head';
 
 import logoTexto from '@/assets/svg/2.svg'
 import Image from "next/image";
+import Link from "next/link";
 import {ThemeSwitcher} from "@/components/theme/theme-switcher";
 
 
@@ -20,12 +21,13 @@ export default function Component() {
 
 
                     <div className="flex-grow flex justify-center">
-                        <Image
-                            src={logoTexto}
-                            className="size-48"
-                            alt="Cozinhapp"
-                        />
-
+                        <Link href="/home" className="cursor-pointer">
+                            <Image
+                                src={logoTexto}
+                                className="size-48 hover:scale-105 transition-transform duration-200"
+                                alt="Cozinhapp"
+                            />
+                        </Link>
                     </div>
                     <div className="ml-auto flex gap-2">
 
