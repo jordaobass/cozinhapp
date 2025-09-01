@@ -4,8 +4,32 @@ import "./globals.css";
 import {ThemeProvider} from 'next-themes'
 
 export const metadata: Metadata = {
-    title: "Cozinhapp",
-    description: " ",
+    title: "Cozinhapp - Receitas Personalizadas com Seus Ingredientes",
+    description: "Descubra receitas deliciosas usando os ingredientes que você tem em casa. Mais de 100+ receitas nutritivas, fáceis e econômicas para toda família.",
+    keywords: "receitas com ingredientes, receitas fáceis, aproveitamento ingredientes, receitas econômicas, culinária caseira",
+    authors: [{ name: "Cozinhapp" }],
+    openGraph: {
+        title: "Cozinhapp - Receitas Personalizadas com Seus Ingredientes",
+        description: "Descubra receitas deliciosas usando os ingredientes que você tem em casa. Mais de 100+ receitas nutritivas, fáceis e econômicas.",
+        url: "https://cozinhapp.com",
+        siteName: "Cozinhapp",
+        type: "website",
+        locale: "pt_BR",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Cozinhapp - Receitas Personalizadas com Seus Ingredientes",
+        description: "Descubra receitas deliciosas usando os ingredientes que você tem em casa.",
+        creator: "@cozinhapp",
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+        },
+    },
 };
 
 export default function RootLayout({

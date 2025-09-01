@@ -36,9 +36,41 @@ const ReceitaPage: React.FC = () => {
     if (loading) return <div className="text-center">Loading...</div>;
     if (!receita) return <div className="text-center">Receita não encontrada.</div>;
 
+    const recipeJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": receita.nome,
+        "description": receita.descricao,
+        "recipeIngredient": receita.ingredientes,
+        "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": `${receita.calorias} cal`,
+            "proteinContent": `${receita.proteina}g`,
+            "carbohydrateContent": `${receita.carboidrato}g`
+        },
+        "recipeInstructions": [
+            {
+                "@type": "HowToStep",
+                "text": receita.descricao
+            }
+        ],
+        "author": {
+            "@type": "Organization",
+            "name": "Cozinhapp"
+        },
+        "datePublished": new Date().toISOString(),
+        "recipeCategory": "Prato Principal",
+        "recipeCuisine": "Brasileira"
+    };
+
     return (
-        <div className="flex flex-col items-center justify-start min-h-screen p-4 bg-gray-100 dark:bg-gray-900">
-            <motion.div
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(recipeJsonLd) }}
+            />
+            <div className="flex flex-col items-center justify-start min-h-screen p-4 bg-gray-100 dark:bg-gray-900">
+                <motion.div
                 className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 max-w-3xl w-full"
                 initial={{ opacity: 0, scale: 0.95 }} // Estado inicial da animação
                 animate={{ opacity: 1, scale: 1 }} // Estado final da animação
@@ -46,14 +78,14 @@ const ReceitaPage: React.FC = () => {
             >
                 <h1 className="text-3xl font-bold text-center text-gray-900 dark:text-white">{receita.nome}</h1>
 
-                <h2 className="mt-4 text-lg font-semibold text-gray-900 dark:text-white">Ingredientes:</h2>
+                <h2 className="mt-4 text-xl font-semibold text-gray-900 dark:text-white">Ingredientes:</h2>
                 <ul className="list-disc ml-6">
                     {receita.ingredientes.map((ingrediente, index) => (
                         <li key={index} className="text-gray-700 dark:text-gray-300">{ingrediente}</li>
                     ))}
                 </ul>
 
-                <h2 className="mt-10 text-lg font-semibold text-gray-900 dark:text-white">Instruções:</h2>
+                <h2 className="mt-10 text-xl font-semibold text-gray-900 dark:text-white">Modo de Preparo:</h2>
                 <p className="mt-4 mb-10 text-justify text-gray-700 dark:text-gray-300">{receita.descricao}</p>
 
                 <p className="mt-4 text-gray-900 dark:text-white">Calorias: {receita.calorias}</p>
@@ -77,6 +109,7 @@ const ReceitaPage: React.FC = () => {
                 </div>
             </motion.div>
         </div>
+        </>
     );
 };
 

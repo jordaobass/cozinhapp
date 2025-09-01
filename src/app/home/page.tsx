@@ -12,9 +12,12 @@ export default function Home() {
 
     return (
         <div className="flex flex-col items-center justify-center mx-10 mb-5 ">
-
-            <div className="flex flex-row justify-center mt-10 w-full">
-            <TypingAnimation />
+            <h1 className="text-4xl font-bold text-center mb-6 text-gray-900 dark:text-white">
+                Cozinhapp - Receitas com Seus Ingredientes
+            </h1>
+            
+            <div className="flex flex-row justify-center mt-4 w-full">
+                <TypingAnimation />
             </div>
             <div className="flex flex-row justify-center mb-5 w-full">
                 <AutocompleteInput

@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://cozinhapp.com/sitemap.xml
+
+# Block sensitive paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Allow important pages
+Allow: /home
+Allow: /receitas/
+Allow: /ingredientes/

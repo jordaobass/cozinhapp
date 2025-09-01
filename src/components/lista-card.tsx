@@ -57,7 +57,9 @@ const ListaCards: React.FC<ListaCardsProps> = ({ ingredientesSelecionados }) => 
 
     return (
         <div className="mt-4">
-            <h2 className="text-lg font-bold"></h2>
+            <h2 className="text-2xl font-bold text-center mb-6 text-gray-900 dark:text-white">
+                {filteredReceitas.length > 0 ? `${filteredReceitas.length} Receitas Encontradas` : 'Suas Receitas Aparecerão Aqui'}
+            </h2>
 
             {filteredReceitas.length > 0 ? (
                 <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
