@@ -101,7 +101,7 @@ const ListaCards: React.FC<ListaCardsProps> = ({ ingredientesSelecionados }) => 
         // Debounce para evitar filtros muito frequentes
         const timeoutId = setTimeout(filterRecipes, 300);
         return () => clearTimeout(timeoutId);
-    }, [ingredientesSelecionados]); // Removido allRecipes da dependência
+    }, [ingredientesSelecionados, allRecipes.length]); // Usa allRecipes.length para evitar re-renders desnecessários
 
     // Receitas já estão filtradas no useEffect, então apenas usa o estado
     const filteredReceitas = receitas;
